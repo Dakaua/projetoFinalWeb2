@@ -16,8 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Por favor, preencha todos os campos.");
     }
 
-    // Depuração dos valores
-  //  var_dump($nome, $sexo, $email, $senha); // Remova esta linha após depuração
 
     // Criar o usuário
     $usuario->criar($nome, $sexo, $email, $senha);
@@ -36,7 +34,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <h1>Adicionar Usuário</h1>
+    <header>
+        <img src="./imgs/logoNoticiarioDan.webp" alt="" id="logo">
+        <h1>Fofoqueiros de Plantão</h1>
+
+        <h1>Adicionar Usuário</h1>
+
+        <button><a href="./listaUsuarios.php">Voltar</a></button>
+    </header>
+
     <form method="POST">
         <label for="nome">Nome:</label>
         <input type="text" name="nome" required>

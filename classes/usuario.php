@@ -2,7 +2,7 @@
 
 class Usuario {
     private $conn;
-    private $table_name = "tbautor";
+    private $table_name = "tbusuarios";
 
  
     public function __construct($db) {
@@ -51,7 +51,7 @@ class Usuario {
     } 
 
     public function lerPorId($id) {
-        $query = "SELECT * FROM " . $this->table_name . " WHERE idautor = ?";
+        $query = "SELECT * FROM " . $this->table_name . " WHERE idusuario = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -59,7 +59,7 @@ class Usuario {
 
 
     public function atualizar($id, $nome, $sexo, $email) {
-        $query = "UPDATE " . $this->table_name . " SET nome = ?, sexo = ?, email = ? WHERE idautor = ?"; 
+        $query = "UPDATE " . $this->table_name . " SET nome = ?, sexo = ?, email = ? WHERE idusuario = ?"; 
         $stmt = $this->conn->prepare($query);
         $stmt->execute([$nome, $sexo, $email, $id]);
         return $stmt; 
@@ -67,7 +67,7 @@ class Usuario {
 
 
     public function deletar($id) {
-        $query = "DELETE FROM " . $this->table_name . " WHERE idautor = ?"; 
+        $query = "DELETE FROM " . $this->table_name . " WHERE idusuario = ?"; 
         $stmt = $this->conn->prepare($query); 
         $stmt->execute([$id]); 
         return $stmt; 

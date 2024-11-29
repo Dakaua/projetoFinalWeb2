@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'];
         $senha = $_POST['senha'];
         if ($dados_usuario = $usuario->login($email, $senha)) {
-            $_SESSION['usuario_id'] = $dados_usuario['idautor'];
+            $_SESSION['usuario_id'] = $dados_usuario['idusuario'];
             $_SESSION['usuario_nome'] = $dados_usuario['nome'];
             header('Location: gerenciador.php');
             exit();
@@ -29,24 +29,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A U T E N T I C A Ç Ã O</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 
 <body>
+    <header>
+        <img src="./imgs/logoNoticiarioDan.webp" alt="" id="logo">
+        <h1>Fofoqueiros de Plantão</h1>
 
-
+    </header>
+    
     <div class="container">
-
-
+        
+        
         <div class="box">
-            <h1>A U T E N T I C A Ç Ã O</h1>
-
-
+            
+            
             <form method="POST">
+                <h1>Login</h1>
                 <label for="email">Email:</label><br>
                 <input type="email" name="email" required>
                 <br><br>
@@ -66,4 +70,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 </body>
+
 </html>

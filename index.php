@@ -4,9 +4,9 @@ include "./config/config.php";
 include "./classes/noticia.php";
 
 // Supondo que $db é a conexão ao banco
-$query = "SELECT tbnoticia.titulo, tbnoticia.data, tbnoticia.noticia, tbnoticia.foto,  tbautor.nome AS autor 
+$query = "SELECT tbnoticia.titulo, tbnoticia.data, tbnoticia.noticia, tbnoticia.foto,  tbusuarios.nome AS autor 
                 FROM tbnoticia 
-                JOIN tbautor ON tbnoticia.autor = tbautor.idautor";
+                JOIN tbusuarios ON tbnoticia.autor = tbusuarios.idusuario";
 $stmt = $db->prepare($query);
 $stmt->execute();
 $noticias = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -24,10 +24,10 @@ $noticias = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body id="indexBody">
     <header>
-        <img src="" alt="">
-        <h1>Portal de Notícias</h1>
+        <img src="./imgs/logoNoticiarioDan.webp" alt="" id="logo">
+        <h1>Fofoqueiros de Plantão</h1>
 
         <button><a href="login.php">Gerenciadores</a>
     </header>

@@ -34,9 +34,9 @@ class Noticia
 
     public function listarTodos()
     {
-        $sql = "SELECT tbnoticia.idnoticia, tbnoticia.titulo, tbnoticia.data, tbnoticia.noticia, tbnoticia.foto,  tbautor.nome AS autor 
+        $sql = "SELECT tbnoticia.idnoticia, tbnoticia.titulo, tbnoticia.data, tbnoticia.noticia, tbnoticia.foto,  tbusuarios.nome AS autor 
                 FROM tbnoticia 
-                JOIN tbautor ON tbnoticia.autor = tbautor.idautor";
+                JOIN tbusuarios ON tbnoticia.autor = tbusuarios.idusuario";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt; // Retorna o PDOStatement para ser usado com fetch()

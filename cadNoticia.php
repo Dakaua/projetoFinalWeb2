@@ -27,9 +27,16 @@ try {
 </head>
 
 <body>
+<header>
+        <img src="./imgs/logoNoticiarioDan.webp" alt="" id="logo">
+        <h1>Fofoqueiros de Plantão</h1>
+
+    </header>
+
+
     <div class="container">
-        <h1>Adicionar Notícia</h1>
         <form method="POST" action="salvarNoticia.php" enctype="multipart/form-data">
+            <h1>Adicionar Notícia</h1>
 
             <label for="titulo">Titulo da Noticia:</label><br>
             <input type="text" name="titulo" required><br>
@@ -40,7 +47,7 @@ try {
                 <label for="autor">Autor:</label>
                 <option value="">Selecionar Autor</option>
                 <?php foreach ($Usuario as $Usuarios): ?>
-                    <option value="<?php echo $Usuarios["idautor"]; ?>">
+                    <option value="<?php echo $Usuarios["idusuario"]; ?>">
                         <?php echo htmlspecialchars($Usuarios['nome']); ?></option>
                 <?php endforeach; ?>
             </select><br><br>
